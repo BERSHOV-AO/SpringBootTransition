@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
         if (user.getId() != null && userRepository.existsById(user.getId())) {
             User existingUser = userRepository.findById(user.getId()).orElseThrow(() -> new RuntimeException("User not found"));
             existingUser.setFirstName(user.getFirstName());
-            existingUser.setLastName(user.getLastName());
+            existingUser.setEmail(user.getEmail());
             userRepository.save(existingUser);
         } else {
             userRepository.save(user);
